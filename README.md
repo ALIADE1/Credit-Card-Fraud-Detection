@@ -1,36 +1,34 @@
-# Credit Card Fraud Detection - Jupyter Notebook
+# Credit Card Fraud Detection
 https://www.kaggle.com/code/a7lia8del/credit-card-fraud-detection
 
+
 ## Overview
-This Jupyter Notebook explores methods to detect fraudulent credit card transactions while handling the class imbalance issue. It covers data preprocessing, model training, and evaluation.
+This project focuses on detecting fraudulent credit card transactions using machine learning models. Given the highly imbalanced nature of the dataset, specific preprocessing techniques are applied to improve model performance.
 
-## Notebook Workflow
+## Dataset
+The dataset used is the "Credit Card Fraud Detection" dataset, which consists of anonymized transaction details, including numerical features extracted using PCA and a binary target variable (0 = legitimate, 1 = fraud).
 
-### 1. Data Preprocessing
-- **Handling Missing Values**: Checked for missing data (none found in this dataset).
-- **Feature Scaling**: Applied standardization to the `Amount` feature.
-- **Splitting Data**: Divided into training and test sets.
+## Steps in the Notebook
 
-### 2. Handling Imbalanced Data
-- **Oversampling**: Synthetic Minority Over-sampling Technique (SMOTE).
-- **Undersampling**: Random undersampling of the majority class.
-- **Combination Methods**: Using both oversampling and undersampling for better balance.
+### 1. Data Loading and Libraries
+- Load the dataset using `pandas`.
+- Import necessary libraries such as `numpy`, `matplotlib`, and `seaborn` for analysis and visualization.
+- Handle class imbalance using `imblearn` techniques like `RandomUnderSampler`.
 
-### 3. Model Training
-The notebook trains and compares multiple models:
-- **Logistic Regression**
-- **Random Forest**
-- **Gradient Boosting (XGBoost)**
-- **Neural Network (MLPClassifier)**
-- **Anomaly Detection Approaches** (e.g., Isolation Forest)
+### 2. Data Preprocessing
+- Apply `StandardScaler` and `RobustScaler` to normalize transaction amounts and features.
+- Split the dataset into training and testing sets.
 
-### 4. Model Evaluation
-- **Performance Metrics**:
-  - Precision, Recall, F1-Score (to assess fraud detection effectiveness)
-  - ROC-AUC Score (to measure classifier performance)
-  - Confusion Matrix (to analyze correct and incorrect predictions)
+### 3. Modeling
+- Implement multiple classification models:
+  - **Logistic Regression**
+  - **Random Forest Classifier**
+  - **XGBoost Classifier**
+- Train models on the processed dataset.
 
-### 5. Results & Insights
-- **Baseline models** struggled due to class imbalance.
-- **SMOTE & cost-sensitive learning** improved recall for fraud detection.
-- **Anomaly detection models** provided alternative methods for identifying fraudulent transactions.
+### 4. Evaluation
+- Assess model performance using:
+  - **Accuracy Score**
+  - **Classification Report**
+  - **Confusion Matrix**
+- Use visualization techniques to analyze fraud detection efficiency.
